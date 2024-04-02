@@ -199,12 +199,12 @@ bool InsertLaunchLua(std::vector<std::wstring> &commandLine, std::string &firstL
 	}
 
 	// Check for the registry key left by the installer
-	// HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Path of Building Community\InstallLocation
+	// HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Path of Building for Last Epoch\InstallLocation
 	{
 		DWORD dwType = 0;
 		DWORD dwSize = MAX_PATH;
 		wchar_t wszValue[MAX_PATH]{};
-		DWORD dwStatus = RegGetValue(HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Path of Building Community", L"InstallLocation", RRF_RT_REG_SZ, &dwType, wszValue, &dwSize);
+		DWORD dwStatus = RegGetValue(HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Path of Building for Last Epoch", L"InstallLocation", RRF_RT_REG_SZ, &dwType, wszValue, &dwSize);
 		if (dwStatus == ERROR_SUCCESS && dwSize > sizeof(wchar_t))
 		{
 			// Strip the quotes around the value
@@ -222,7 +222,7 @@ bool InsertLaunchLua(std::vector<std::wstring> &commandLine, std::string &firstL
 		if (SHGetSpecialFolderPath(nullptr, wszAppDataPath, CSIDL_APPDATA, false))
 		{
 			std::wstring basePath(wszAppDataPath);
-			basePath += L"\\Path of Building Community\\";
+			basePath += L"\\Path of Building for Last Epoch\\";
 			if (FindLaunchLua(basePath, commandLine, firstLine))
 			{
 				return true;
@@ -236,7 +236,7 @@ bool InsertLaunchLua(std::vector<std::wstring> &commandLine, std::string &firstL
 		if (SHGetSpecialFolderPath(nullptr, wszAppDataPath, CSIDL_COMMON_APPDATA, false))
 		{
 			std::wstring basePath(wszAppDataPath);
-			basePath += L"\\Path of Building\\";
+			basePath += L"\\Path of Building for Last Epoch\\";
 			if (FindLaunchLua(basePath, commandLine, firstLine))
 			{
 				return true;

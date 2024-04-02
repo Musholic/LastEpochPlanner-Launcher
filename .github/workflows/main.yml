@@ -13,5 +13,5 @@ jobs:
                   - name: Archive EXE
                     uses: actions/upload-artifact@v3
                     with:
-                        name: Path of Building.exe
-                        path: '${{ github.workspace }}/x64/Release/Path of Building.exe'
+                        name: Path of Building for Last Epoch.exe
+                        path: '${{ github.workspace }}/x64/Release/Path of Building for Last Epoch.exe'
