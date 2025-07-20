@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by PathOfBuilding-Launcher.rc
+// Used by LastEpochPlanner-Launcher.rc
 //
 #define IDI_ICON1                       1000
 

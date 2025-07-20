@@ -9,9 +9,9 @@ jobs:
                   - name: Setup MSBuild
                     uses: microsoft/setup-msbuild@v1
                   - name: Build EXE
-                    run: 'msbuild PathOfBuilding-Launcher.vcxproj /p:configuration=release /p:platform=x64'
+                    run: 'msbuild LastEpochPlanner-Launcher.vcxproj /p:configuration=release /p:platform=x64'
                   - name: Archive EXE
                     uses: actions/upload-artifact@v3
                     with:
-                        name: Path of Building for Last Epoch.exe
-                        path: '${{ github.workspace }}/x64/Release/Path of Building for Last Epoch.exe'
+                        name: Last Epoch Planner.exe
+                        path: '${{ github.workspace }}/x64/Release/Last Epoch Planner.exe'

@@ -31,12 +31,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="PathOfBuilding-Launcher.rc">
+    <ResourceCompile Include="LastEpochPlanner-Launcher.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="PathOfBuilding.ico">
+    <Image Include="LastEpochPlanner.ico">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

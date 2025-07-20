@@ -1,2 +1,2 @@
-# PathOfBuildingForLastEpoch-Launcher
-Main executable for Path of Building for Last Epoch
+# LastEpochPlanner-Launcher
+Main executable for Last Epoch Planner

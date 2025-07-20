@@ -199,12 +199,12 @@ bool InsertLaunchLua(std::vector<std::wstring> &commandLine, std::string &firstL
 	}
 
 	// Check for the registry key left by the installer
-	// HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Path of Building for Last Epoch\InstallLocation
+	// HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Last Epoch Planner\InstallLocation
 	{
 		DWORD dwType = 0;
 		DWORD dwSize = MAX_PATH;
 		wchar_t wszValue[MAX_PATH]{};
-		DWORD dwStatus = RegGetValue(HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Path of Building for Last Epoch", L"InstallLocation", RRF_RT_REG_SZ, &dwType, wszValue, &dwSize);
+		DWORD dwStatus = RegGetValue(HKEY_CURRENT_USER, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Last Epoch Planner", L"InstallLocation", RRF_RT_REG_SZ, &dwType, wszValue, &dwSize);
 		if (dwStatus == ERROR_SUCCESS && dwSize > sizeof(wchar_t))
 		{
 			// Strip the quotes around the value
@@ -222,7 +222,7 @@ bool InsertLaunchLua(std::vector<std::wstring> &commandLine, std::string &firstL
 		if (SHGetSpecialFolderPath(nullptr, wszAppDataPath, CSIDL_APPDATA, false))
 		{
 			std::wstring basePath(wszAppDataPath);
-			basePath += L"\\Path of Building for Last Epoch\\";
+			basePath += L"\\Last Epoch Planner\\";
 			if (FindLaunchLua(basePath, commandLine, firstLine))
 			{
 				return true;
@@ -236,7 +236,7 @@ bool InsertLaunchLua(std::vector<std::wstring> &commandLine, std::string &firstL
 		if (SHGetSpecialFolderPath(nullptr, wszAppDataPath, CSIDL_COMMON_APPDATA, false))
 		{
 			std::wstring basePath(wszAppDataPath);
-			basePath += L"\\Path of Building for Last Epoch\\";
+			basePath += L"\\Last Epoch Planner\\";
 			if (FindLaunchLua(basePath, commandLine, firstLine))
 			{
 				return true;
@@ -341,7 +341,7 @@ int CALLBACK wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance
 		RunLuaFile = (PFNRUNLUAFILEPROC)GetProcAddress(hDLL, "RunLuaFileAsConsole");
 	}
 	if (!RunLuaFile) {
-		wprintf(L"ERROR: DLL '%s' does not appear to be a Path of Building dll.\n", dllName.c_str());
+		wprintf(L"ERROR: DLL '%s' does not appear to be a Last Epoch Planner dll.\n", dllName.c_str());
 		FreeLibrary(hDLL);
 		return 1;
 	}
