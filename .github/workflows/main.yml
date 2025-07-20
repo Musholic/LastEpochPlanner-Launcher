@@ -11,7 +11,7 @@ jobs:
                   - name: Build EXE
                     run: 'msbuild LastEpochPlanner-Launcher.vcxproj /p:configuration=release /p:platform=x64'
                   - name: Archive EXE
-                    uses: actions/upload-artifact@v3
+                    uses: actions/upload-artifact@v4
                     with:
                         name: Last Epoch Planner.exe
                         path: '${{ github.workspace }}/x64/Release/Last Epoch Planner.exe'
